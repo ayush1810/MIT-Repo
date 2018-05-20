@@ -1,24 +1,22 @@
 from django.db import models
 
 # Create your models here.
-class Topic(models.Model):
-    top_name = models.CharField(max_length=255,unique=True)
+class Semester(models.Model):
+    sem = models.IntegerField(default = 1, unique=True)
 
     def __str__(self):
-        return self.top_name
+        return str(self.sem)
 
-class Webpage(models.Model):
-    topic = models.ForeignKey(Topic, models.CASCADE)
+class Branch(models.Model):
     name = models.CharField(max_length = 255, unique = True)
-    url = models.URLField(unique = True)
 
     def __str__(self):
         return self.name
 
-
-class AccessRecord(models.Model):
-    name = models.ForeignKey(Webpage,models.CASCADE)
-    date = models.DateField()
+class Subject(models.Model):
+    semester = models.ForeignKey(Semester, models.CASCADE)
+    branch_name = models.ForeignKey(Branch,models.CASCADE)
+    name = models.CharField(max_length = 255, unique=True)
 
     def __str__(self):
-        return str(self.date)
+        return str(self.name)

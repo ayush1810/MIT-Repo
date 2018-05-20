@@ -1,6 +1,6 @@
 from django.contrib import admin
-from testapp.models import Topic,Webpage,AccessRecord
+from testapp.models import Semester,Branch,Subject
 # Register your models here.
-admin.site.register(AccessRecord)
-admin.site.register(Topic)
-admin.site.register(Webpage)
+admin.site.register(Subject)
+admin.site.register(Semester)
+admin.site.register(Branch)

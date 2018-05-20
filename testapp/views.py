@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from testapp.models import Semester,Branch,Subject
 # Create your views here.
 
 def index(request):
-    vals = {'insert_me':"You got dick from the backend!"}
+    semval = Semester.objects.order_by('id')
+    vals = {'SemHere' : semval}
     return render(request, 'testapp/index.html', context=vals)
 
 def about(request):
