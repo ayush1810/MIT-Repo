@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The MIT Portal</title>
+    <link rel="stylesheet" href="{% static "css/style.css"  %}"/>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <div class="semlist">
+        {% if SemHere %}
+            <table>
+                <thead>
+                    <th>Semester</th>
+                </thead>
+            {% for item in SemHere %}
+                <tr>
+                    <td>{{item.sem}}</td>
+                </tr>
+            {% endfor %}     
+            </table>
+        {% else %}
+            <p>No Semester Found</p>
+        {% endif %}    
+    </div>
+</body>
+</html>
