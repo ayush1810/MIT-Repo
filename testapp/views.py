@@ -14,14 +14,13 @@ def about(request):
 
 def formpg(request):
     form = forms.FormName()
-
+    sem_vals = Semester.objects.all()
     if request.method == 'POST':
         form = forms.FormName(request.POST)
-
-        if form.is_valid():
-            print("Validation success")
-            print("Name: "+form.cleaned_data['name'])
-            print("Name: "+form.cleaned_data['email'])
-            print("Name: "+form.cleaned_data['text'])
+        # if form.is_valid():
+        #     print("Validation success")
+        #     print("Name: "+form.cleaned_data['name'])
+        #     print("Name: "+form.cleaned_data['email'])
+        #     print("Name: "+form.cleaned_data['text'])
                         
-    return render(request,'testapp/forms.html',{'form':form})
+    return render(request,'testapp/forms.html',{'form':form, 'Semester':sem_vals})
